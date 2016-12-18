@@ -57,7 +57,7 @@ module Switcher
       puts "Invalid profile number"
       exit!
     end
-    selected_profile = profiles[answer-1]
+    selected_profile = profiles.keys[answer-1]
 
     profile_data = json_hash
     profile_data['profiles'] = json_hash['profiles'].each do |p|
