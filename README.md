@@ -4,21 +4,12 @@ A reverse engineering of [karabiner-profile-switch](https://github.com/nomaed/ka
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Execute:
 
-```ruby
-gem 'switcher'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install switcher
+    $ bundle install
+    $ rake install
 
 ## Usage
 
-    $ bundle exec bin/swt
+    $ swt
 
