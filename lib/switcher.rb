@@ -28,7 +28,7 @@ module Switcher
   end
 
   def profiles
-    profiles = json_hash['profiles'].collect { |i| i['name'] }
+    profiles = Hash[json_hash['profiles'].collect { |i| [i['name'], i['selected']] }]
   end
 
   def restart_service
@@ -45,7 +45,13 @@ module Switcher
 
   def switch_profile
     puts "Karabiner-Elements profiles: "
-    profiles.each_with_index { |p, i| puts "#{i+1}) #{p}" }
+    profiles.each_with_index do |(k,v), i|
+      if v
+        puts "-> #{i+1}) #{k}"
+      else
+        puts "   #{i+1}) #{k}"
+      end
+    end
     answer = gets.to_i
     if answer.to_i > profiles.length || answer.to_i <= 0
       puts "Invalid profile number"
