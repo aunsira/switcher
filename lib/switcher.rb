@@ -6,7 +6,7 @@ module Switcher
   module_function
 
   $config = {
-    default_config_file: "~/.config/karabiner/karabiner.json.",
+    default_config_file: "~/.config/karabiner/karabiner.json",
     service: "org.pqrs.karabiner.karabiner_console_user_server"
   }
 
