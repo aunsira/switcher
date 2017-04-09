@@ -52,7 +52,12 @@ module Switcher
         puts "   #{i+1}) #{k}"
       end
     end
-    answer = gets.to_i
+    begin
+      answer = gets.to_i
+    rescue Interrupt => e
+      puts "....Program was closed."
+      exit!
+    end
     if answer.to_i > profiles.length || answer.to_i <= 0
       puts "Invalid profile number"
       exit!
