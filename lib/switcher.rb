@@ -31,16 +31,11 @@ module Switcher
     profiles = Hash[json_hash['profiles'].collect { |i| [i['name'], i['selected']] }]
   end
 
-  def restart_service
-    puts 'Restarting service'
-    system("launchctl stop #{$config[:service]}")
-    system("launchctl start #{$config[:service]}")
-  end
-
   def save_config(profile)
     File.open(config_file, 'w') do |f|
       f.write(JSON.pretty_generate(profile))
     end
+    puts "Successfully saved profile."
   end
 
   def switch_profile
@@ -73,6 +68,5 @@ module Switcher
       end
     end
     save_config(profile_data)
-    restart_service
   end
 end
